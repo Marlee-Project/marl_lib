@@ -24,4 +24,6 @@ include_directories(
 
 add_subdirectory(sandbox)
 
-add_library(marl_lib ${MARL_INCLUDE_DIR}/marl_lib.h ${MARL_SRC_DIR}/test.c)
+
+SET(MARL_LIB_FILES ${MARL_INCLUDE_DIR}/marl_lib.h ${MARL_INCLUDE_DIR}/marl_window.h ${MARL_SRC_DIR}/visual/marl_window.c)
+add_library(marl_lib ${MARL_LIB_FILES})
