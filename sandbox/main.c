@@ -1,33 +1,14 @@
 #include <marl_lib.h>
+#include <stdlib.h>
 
 int main(int argc, char* argv[]) {
-    MARL_Window *window = MARL_CreateWindow();
-    printf("Hello Marleematic\n");
+  MARL_String *s = MARL_StringCreate(">_ I am Marlee");
+  MARL_StringAppend(s, "matic!");
+  MARL_Window *window = MARL_WindowCreate(s->string);
+  SDL_Delay(5000);
 
-    SDL_Surface *bmpSurface = SDL_LoadBMP("./bin/sample.bmp");
-    SDL_Texture *bmpTex = SDL_CreateTextureFromSurface(window->sdl_renderer, bmpSurface);
-    SDL_FreeSurface(bmpSurface);
+  MARL_WindowDestroy(window);
+  SDL_Quit();
 
-    SDL_RenderClear(window->sdl_renderer);
-    SDL_RenderCopy(window->sdl_renderer, bmpTex, NULL, NULL);
-    SDL_RenderPresent(window->sdl_renderer);
-
-    SDL_Event event;
-    int running = 1;
-
-
-    while(running) {
-      while(SDL_PollEvent(&event)) {
-        switch (event.type) {
-          case SDL_QUIT:
-            running = 0;
-            break;
-        }
-      }
-    }
-
-    SDL_DestroyWindow(window->sdl_window);
-    SDL_DestroyRenderer(window->sdl_renderer);
-    SDL_Quit();
-    return 0;
+  return 0;
 }
