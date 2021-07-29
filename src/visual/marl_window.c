@@ -7,15 +7,14 @@ MARL_Window *MARL_WindowCreate(char *title) {
       return NULL;
     }
   }
-
-
   MARL_Window *window = malloc(sizeof(MARL_Window));
-
   window->sdl_window = SDL_CreateWindow(title, SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 1600,900, SDL_WINDOW_RESIZABLE);
-
   SDL_MaximizeWindow(window->sdl_window);
 
   window->sdl_renderer = SDL_CreateRenderer(window->sdl_window, -1, SDL_RENDERER_ACCELERATED);
+	SDL_SetRenderDrawColor(window->sdl_renderer, 0,255, 255, 255);
+	SDL_RenderClear(window->sdl_renderer);
+
   return window;
 }
 
