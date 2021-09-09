@@ -27,5 +27,5 @@ include_directories(
 
 add_subdirectory(sandbox)
 
-SET(MARL_LIB_FILES ${MARL_INCLUDE_DIR}/marl_lib.h ${MARL_INCLUDE_DIR}/marl_window.h ${MARL_SRC_DIR}/visual/marl_window.c ${MARL_INCLUDE_DIR}/marl_list.h ${MARL_SRC_DIR}/util/marl_list.c ${MARL_INCLUDE_DIR}/marl_string.h ${MARL_SRC_DIR}/util/marl_string.c ${MARL_INCLUDE_DIR}/marl_sdl.h ${MARL_INCLUDE_DIR}/marl_terminal.h ${MARL_SRC_DIR}/util/marl_terminal.c)
+SET(MARL_LIB_FILES ${MARL_INCLUDE_DIR}/marl_lib.h ${MARL_INCLUDE_DIR}/marl_window.h ${MARL_SRC_DIR}/visual/marl_window.c ${MARL_SRC_DIR}/visual/marl_widget.c ${MARL_INCLUDE_DIR}/marl_widget.h ${MARL_INCLUDE_DIR}/marl_list.h ${MARL_SRC_DIR}/util/marl_list.c ${MARL_INCLUDE_DIR}/marl_string.h ${MARL_SRC_DIR}/util/marl_string.c ${MARL_INCLUDE_DIR}/marl_sdl.h ${MARL_INCLUDE_DIR}/marl_terminal.h ${MARL_SRC_DIR}/util/marl_terminal.c)
 add_library(marl_lib ${MARL_LIB_FILES})

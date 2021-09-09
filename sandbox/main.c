@@ -22,25 +22,29 @@ int main(int argc, char *argv[]) {
   SDL_RenderCopy(window->sdl_renderer, textTexture, NULL, &textRect);
 
   SDL_RenderPresent(window->sdl_renderer);
-
-  char quit = 1;
+  MARL_Widget text = MARL_CreateTextBox("Hello World", font, 100, 100, 200, 30);
+       	char quit = 0;
   SDL_Event event;
-  while (quit) {
+  while (!quit) {
     while (SDL_PollEvent(&event)) {
       switch (event.type) {
       case SDL_QUIT:
-        quit = 0;
+        quit = 1;
         break;
       case SDL_WINDOWEVENT:
         if (event.window.event == SDL_WINDOWEVENT_RESIZED) {
           SDL_RenderClear(window->sdl_renderer);
+	  MARL_WidgetDraw(window, text);
+	  SDL_SetRenderDrawColor(window->sdl_renderer, 0, 127, 127, 0);
           SDL_RenderCopy(window->sdl_renderer, textTexture, NULL, &textRect);
           SDL_RenderPresent(window->sdl_renderer);
         }
         break;
       case SDL_USEREVENT:
         if (event.type == MARL_TERMINALEVENT) {
-          // Get data with event.user.data1
+          if(strcmp(event.user.data1, "exit\n") == 0) {
+	  	quit = 1;
+	  }
         }
         break;
       }

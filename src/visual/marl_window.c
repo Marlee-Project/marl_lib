@@ -25,4 +25,6 @@ MARL_Window *MARL_WindowCreate(char *title) {
 void MARL_WindowDestroy(MARL_Window *window) {
   SDL_DestroyWindow(window->sdl_window);
   SDL_DestroyRenderer(window->sdl_renderer);
+  free(window);
+  window = 0;
 }

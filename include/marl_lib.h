@@ -13,5 +13,6 @@
 #include "marl_string.h"
 #include "marl_terminal.h"
 #include "marl_window.h"
+#include "marl_widget.h"
 
 #endif /* end of include guard: MARL_LIB_H */
