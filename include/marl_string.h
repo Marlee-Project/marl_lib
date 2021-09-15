@@ -8,4 +8,4 @@ typedef struct MARL_String {
 
 MARL_String *MARL_StringCreate(char *str);
 
-void MARL_StringAppend(MARL_String *src, char *str);
+void MARL_StringAppend(MARL_String *src, const char *str);

@@ -11,7 +11,13 @@ int main(int argc, char *argv[]) {
 
   TTF_Init();
   SDL_Color color = {0, 0, 0, 255};
-  TTF_Font *font = TTF_OpenFont("./internal/files/Roboto-Regular.ttf", 18);
+  TTF_Font *font = TTF_OpenFont("../internal/files/Roboto-Regular.ttf", 18);
+    if (!font) {
+        printf("Failed to open font: %s\n", TTF_GetError());
+        MARL_WindowDestroy(window);
+        SDL_Quit();
+        return 1;
+    }
   SDL_Surface *textSurface =
       TTF_RenderText_Blended(font, "Marlee is the best!", color);
   SDL_Texture *textTexture =

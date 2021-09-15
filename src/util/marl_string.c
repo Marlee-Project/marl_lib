@@ -5,12 +5,13 @@
 
 MARL_String *MARL_StringCreate(char *str) {
   MARL_String *mstr = malloc(sizeof(MARL_String));
-  mstr->size = 0;
+    mstr->string = NULL;
+    mstr->size = 0;
   MARL_StringAppend(mstr, str);
   return mstr;
 }
 
-void MARL_StringAppend(MARL_String *src, char *str) {
+void MARL_StringAppend(MARL_String *src, const char *str) {
   unsigned long str_size = 0;
   do {} while(*(str + ++str_size) != '\0');
 
